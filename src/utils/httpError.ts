@@ -1,3 +1,4 @@
+// utils/httpError.ts
 export class HttpError extends Error {
   statusCode: number;
 
@@ -5,5 +6,7 @@ export class HttpError extends Error {
     super(message);
     this.statusCode = statusCode;
     this.name = "HttpError";
+
+    Object.setPrototypeOf(this, HttpError.prototype);
   }
 }

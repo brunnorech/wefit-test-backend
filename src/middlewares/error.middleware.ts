@@ -19,10 +19,7 @@ export const errorHandler = (
     return res.status(err.statusCode).json({ error: err.message });
   }
 
-  console.log("err.constructor.name:", err.constructor?.name);
-  console.log(JSON.stringify(err));
-  console.log("err instanceof HttpError:", err instanceof HttpError);
-  //   console.error("Unexpected error:", err);
+  console.error("Unexpected error:", err);
 
   return res.status(500).json({
     error: "Internal Server Error",
