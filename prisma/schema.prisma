@@ -8,18 +8,17 @@ datasource db {
 }
 
 model User {
-  id                Int       @id @default(autoincrement())
-  type              UserType
-  name              String
-  cpf               String?   @unique
-  cnpj              String?   @unique
-  cell              String?
-  phone             String?
-  email             String    @unique
-  accepted_terms    Boolean   @default(false)
-  accepted_terms_at DateTime?
-  addresses         Address[]
-  created_at        DateTime  @default(now())
+  id             Int       @id @default(autoincrement())
+  type           UserType
+  name           String
+  cpf            String?   @unique
+  cnpj           String?   @unique
+  cell           String?
+  phone          String?
+  email          String    @unique
+  accepted_terms Boolean   @default(false)
+  addresses      Address[]
+  created_at     DateTime  @default(now())
 }
 
 model Address {
