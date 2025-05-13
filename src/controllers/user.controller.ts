@@ -1,11 +1,17 @@
-import { Request, Response } from "express";
-import { createUserService } from "../services/user.services";
+import { Request, Response, NextFunction } from "express";
+import { createUserService } from "../services/user.service";
+import { createUserSchema } from "../validators/user.schema";
 
-export const createUserController = async (req: Request, res: Response) => {
+export const createUserController = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
-    const user = await createUserService(req.body);
+    const validated = createUserSchema.parse(req.body);
+    const user = await createUserService(validated);
     return res.status(201).json(user);
-  } catch (error: any) {
-    return res.status(400).json({ error: error.message });
+  } catch (err) {
+    next(err);
   }
 };
