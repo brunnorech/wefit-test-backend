@@ -17,3 +17,7 @@ o docker-compose vai criar um container de um MySQL e você poderá acessar via 
 Depois que concluir seu teste não de enviar o seu código junto a pasta data, nela está salvo o volume do MySQL criado pelo docker.
 
 Boa sorte =)
+
+### OBS
+
+Antes de iniciar o servidor instale as deps com `npm i` e rode as migrations do prisma com `npx prisma migrate dev --name init`
